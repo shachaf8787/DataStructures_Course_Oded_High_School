@@ -24,7 +24,8 @@ namespace StacksAndLists
 			Couples.Push(c2);
 			Couples.Push(c1);
 
-			//Console.WriteLine(Tar18(Couples)); 
+            //Console.WriteLine(Tar18(Couples));//
+            Console.WriteLine("Hello");
 
 			Change(p1);
             Console.WriteLine(p1);
