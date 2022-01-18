@@ -42,7 +42,7 @@ namespace StacksAndLists
             string s = "[";
             while (!temp.IsEmpty())
             {
-                s = s + temp.Top();
+                s = s + temp.Top() + "|";
                 this.Push(temp.Pop());
             }
             s = s.Substring(0,s.Length -1)+ "]";

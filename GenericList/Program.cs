@@ -44,10 +44,12 @@ namespace StacksAndLists
 			Console.WriteLine("Stack no.1 = " + Integers1);
 			Console.WriteLine("Stack no.2 = " + Integers2);
 
+			Console.WriteLine("The Output of IfEquals(Stack1, Stack2) is: " + IfEquals(Integers1, Integers2));
+
 			Console.WriteLine("The Output of IfExistInStack(Stack1, 8) is: " + IfExistInStack(Integers1, 8));
 			Console.WriteLine("The Output of IfExistInStack(Stack1, 1) is: " + IfExistInStack(Integers1, 1));
 
-			Console.WriteLine("The Output of IfEquals(Stack1, Stack2) is: " + IfEquals(Integers1, Integers2));
+			//Console.WriteLine("The Output of IfEquals(Stack1, Stack2) is: " + IfEquals(Integers1, Integers2));
 			
 
 
