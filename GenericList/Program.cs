@@ -14,22 +14,67 @@ namespace StacksAndLists
 			Node<int> po1 = new Node<int>(5), po2 = new Node<int>(7), po3 = new Node<int>(8), po4 = new Node<int>(40), po5 = new Node<int>(45);
 			po1.SetNext(po2); po2.SetNext(po3); po3.SetNext(po4); po4.SetNext(po5);
 
-			Couple c1 = new Couple(2,5);
-			Couple c2 = new Couple(0,4);
-			Couple c3 = new Couple(3,0);
-			Couple c4 = new Couple(4,6);
+			Couple c1 = new Couple(2, 5);
+			Couple c2 = new Couple(0, 4);
+			Couple c3 = new Couple(3, 0);
+			Couple c4 = new Couple(4, 6);
 			Stack<Couple> Couples = new Stack<Couple>();
 			Couples.Push(c4);
 			Couples.Push(c3);
 			Couples.Push(c2);
 			Couples.Push(c1);
 
-            //Console.WriteLine(Tar18(Couples));//
-            Console.WriteLine("Hello");
 
-			Change(p1);
-            Console.WriteLine(p1);
+			Stack<int> Integers1 = new Stack<int>();
+			Integers1.Push(2);
+			Integers1.Push(4);
+			Integers1.Push(223);
+			Integers1.Push(8);
+			Integers1.Push(5);
+			Integers1.Push(4);
 
+			Stack<int> Integers2 = new Stack<int>();
+			Integers2.Push(2);
+			Integers2.Push(4);
+			Integers2.Push(223);
+			Integers2.Push(8);
+			Integers2.Push(5);
+			Integers2.Push(4);
+			//Console.WriteLine(Tar18(Couples));//
+			Console.WriteLine("Stack no.1 = " + Integers1);
+			Console.WriteLine("Stack no.2 = " + Integers2);
+
+			Console.WriteLine("The Output of IfExistInStack(Stack1, 8) is: " + IfExistInStack(Integers1, 8));
+			Console.WriteLine("The Output of IfExistInStack(Stack1, 1) is: " + IfExistInStack(Integers1, 1));
+
+			Console.WriteLine("The Output of IfEquals(Stack1, Stack2) is: " + IfEquals(Integers1, Integers2));
+			
+
+
+		}
+
+		public static bool IfExistInStack(Stack<int> s, int num)
+        {
+			if (s.IsEmpty())
+				return false;
+			if (s.Pop() == num)
+				return true;
+			else
+				return false | IfExistInStack(s, num);
+        }
+
+		public static bool IfEquals(Stack<int> s1, Stack<int> s2)
+		{
+			if (s1.IsEmpty() && !s2.IsEmpty())		//if s1 is empty and s2 is not
+				return false;
+			if (!s1.IsEmpty() && s2.IsEmpty())      //if s2 is empty and s1 is not
+				return false;
+			if (s1.IsEmpty() && s2.IsEmpty())
+				return true;
+			if (s1.Pop() == s2.Pop())				//if the top values are equals
+				return true && IfEquals(s1, s2);		//return true for these values											// and check for the next values
+			else
+				return false;
 
 		}
 		public static void SwitchVals(Node<int> one, Node<int> two)
