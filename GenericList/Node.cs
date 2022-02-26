@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StacksAndLists
+namespace DataStructures_Course_Oded_High_School
 {
     class Node<T>
     {

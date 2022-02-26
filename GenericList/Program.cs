@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StacksAndLists
+namespace DataStructures_Course_Oded_High_School
 {
 	class Program
 	{

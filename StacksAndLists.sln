@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StacksAndLists", "GenericList\StacksAndLists.csproj", "{8DE66A3E-DA22-4AD8-A60E-46E6A6FCD1E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures Course - Oded High School", "GenericList\DataStructures Course - Oded High School.csproj", "{8DE66A3E-DA22-4AD8-A60E-46E6A6FCD1E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

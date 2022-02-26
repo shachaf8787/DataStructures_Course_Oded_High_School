@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StacksAndLists
+namespace DataStructures_Course_Oded_High_School
 {
     class Stack<T>
     {
