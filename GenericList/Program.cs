@@ -14,16 +14,7 @@ namespace StacksAndLists
 			Node<int> po1 = new Node<int>(5), po2 = new Node<int>(7), po3 = new Node<int>(8), po4 = new Node<int>(40), po5 = new Node<int>(45);
 			po1.SetNext(po2); po2.SetNext(po3); po3.SetNext(po4); po4.SetNext(po5);
 
-			Couple c1 = new Couple(2, 5);
-			Couple c2 = new Couple(0, 4);
-			Couple c3 = new Couple(3, 0);
-			Couple c4 = new Couple(4, 6);
-			Stack<Couple> Couples = new Stack<Couple>();
-			Couples.Push(c4);
-			Couples.Push(c3);
-			Couples.Push(c2);
-			Couples.Push(c1);
-
+			
 
 			Stack<int> Integers1 = new Stack<int>();
 			Integers1.Push(2);
@@ -32,15 +23,16 @@ namespace StacksAndLists
 			Integers1.Push(8);
 			Integers1.Push(5);
 			Integers1.Push(4);
-
+			
 			Stack<int> Integers2 = new Stack<int>();
 			Integers2.Push(2);
 			Integers2.Push(4);
 			Integers2.Push(223);
-			Integers2.Push(8);
+			Integers2.Push(78);
 			Integers2.Push(5);
 			Integers2.Push(4);
-			//Console.WriteLine(Tar18(Couples));//
+            //Console.WriteLine(Tar18(Couples));//
+            /*
 			Console.WriteLine("Stack no.1 = " + Integers1);
 			Console.WriteLine("Stack no.2 = " + Integers2);
 
@@ -50,11 +42,111 @@ namespace StacksAndLists
 			Console.WriteLine("The Output of IfExistInStack(Stack1, 1) is: " + IfExistInStack(Integers1, 1));
 
 			//Console.WriteLine("The Output of IfEquals(Stack1, Stack2) is: " + IfEquals(Integers1, Integers2));
-			
+			*/
 
+            //Console.WriteLine(AhadotCheck(Integers2, 3));
+            Console.WriteLine(FbiTargilMain("hi my name is shachaf, nice to meet you!"));
+		}
+		
+		public static bool LenghtIsEven(string word)
+        {
+			if (word.Length % 2 == 0)
+				return true;
+			return false;
+        }
+		public static string SwitchTheCneterChar(string word)
+        {
+			char[] charArr = word.ToCharArray();
+			if(charArr.Length <= 2)
+            {
+				return "" + 'a' + 'b';
+            }
+            if (LenghtIsEven(word))
+            {
+				charArr[charArr.Length / 2] = 'a';
+				charArr[(charArr.Length / 2) - 1] = 'b';
+			}
+			else
+				charArr[(word.Length / 2)] = 'a';
+
+			string fixedString = new string(charArr);
+			return fixedString;
 
 		}
 
+		public static string FbiTargilMain(string sentence)
+        {
+			string[] words = sentence.Split(' ');
+			string fixedCentence = "";
+            for (int i = 0; i < words.Length; i++)
+            {
+				fixedCentence += SwitchTheCneterChar(words[i]) + ' ';
+            }
+			return fixedCentence;
+        }
+
+		public static bool AhadotCheck(Stack<int> stk, int num)
+        {
+			Stack<int> backup = new Stack<int>();
+			int x;
+			bool flag;
+
+			flag = false;
+			while (!stk.IsEmpty())
+            {
+				x = stk.Pop();
+				backup.Push(x);
+				if (x % 10 == num)
+					flag = true;
+
+				
+			}
+			
+			while (!backup.IsEmpty())
+				stk.Push(backup.Pop());
+			return flag;
+				
+
+        }
+
+		public static int LastAndRemove(Stack<int> stk)
+        {
+			Stack<int> temp = new Stack<int>();
+
+			int lenght = GetLenght(stk);
+            for (int i = 0; i < lenght-1; i++)
+            {
+
+				temp.Push(stk.Pop());
+            }
+			int thelast = stk.Pop();
+            while (!temp.IsEmpty())
+            {
+				stk.Push(temp.Pop());
+			}
+			return thelast;
+
+
+
+        }
+
+		public static int GetLenght(Stack<int> s)
+        {
+			Stack<int> s2 = new Stack<int>();
+			int counter = 0;
+            while (!s.IsEmpty())
+            {
+				s2.Push(s.Pop());
+				counter++;
+
+            }
+			while (s2.IsEmpty())
+            {
+				s.Push(s2.Pop());
+				
+            }
+			return counter;
+        }
 		public static bool IfExistInStack(Stack<int> s, int num)
         {
 			if (s.IsEmpty())
@@ -118,23 +210,7 @@ namespace StacksAndLists
 			
 
         }
-		public static Stack<int> Tar18(Stack<Couple> stk)
-        {
-			Stack<int> stk2 = new Stack<int>();
-			do
-			{
-				for (int i = 0; i < stk.Top().GetAppears(); i++)
-				{
-					stk2.Push(stk.Top().GetNum());
-				}
-				stk.Pop();
-
-			} while (!stk.IsEmpty());
-				return stk2;
-        }
-
 		
-
 		public static int GetEvenCountAfter(Node<int> first, Node<int> after)
 		{
 			while (first != after && first != null)
