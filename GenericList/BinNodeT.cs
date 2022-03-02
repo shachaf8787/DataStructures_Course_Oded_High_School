@@ -4,12 +4,17 @@ using System.Text;
 
 namespace DataStructures_Course_Oded_High_School
 {
-    class BinNode<T>
+    public class BinNode<T>
     {
-        private BinNode<T> right;
         private T value;
         private BinNode<T> left;
-
+        private BinNode<T> right;
+        public BinNode(T value)
+        {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
         public BinNode(BinNode<T> left, T value, BinNode<T> right)
         {
             this.left = left;
@@ -51,7 +56,7 @@ namespace DataStructures_Course_Oded_High_School
         }
         public override string ToString()
         {
-            return this.value + " --> " + this.right;
+            return "(" + left + " " + value + " " + right + " " + ")";
         }
 
     }
